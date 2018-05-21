@@ -4,7 +4,7 @@
             <div class="swiper-slide" v-for="(item,i) in items" :key="i">
                 <a :title="item.title" :href="item.href" :data-clipboard-text="item.copyText">
                     <div class="swiper-slide-img-wraper" style="margin-bottom: 5px">
-                        <img style="max-width: 100%" :src="item.src" />
+                        <img style="max-width: 100%" :src="item.src"/>
                     </div>
                     {{item.title}}}
                 </a>
@@ -48,8 +48,11 @@
             minHeight: {
                 type: Number
             },
-            imgWHRate:{
-                type:Number
+            imgWHRate: {
+                type: Number
+            },
+            disableOnInteraction: {
+                type: Boolean
             }
         },
         mounted() {
@@ -57,7 +60,7 @@
             if (this.autoplay) {
                 params.autoplay = {
                     delay: 2500,
-                    disableOnInteraction: false,
+                    disableOnInteraction: this.disableOnInteraction ? true : false,
                 }
             }
             if (this.spaceBetween) {
@@ -80,9 +83,9 @@
                     ele.style.minHeight = this.minHeight + 'px'
                 }
             }
-            if(this.imgWHRate){
-                for (let o of document.getElementsByClassName("swiper-slide-img-wraper")){
-                    o.style.height=o.clientWidth*this.imgWHRate+'px'
+            if (this.imgWHRate) {
+                for (let o of document.getElementsByClassName("swiper-slide-img-wraper")) {
+                    o.style.height = o.clientWidth * this.imgWHRate + 'px'
                 }
             }
         }
@@ -93,7 +96,7 @@
     /*.swiper-slide {*/
     /*min-height: 120px;*/
     /*}*/
-    .swiper-slide-img-wraper{
+    .swiper-slide-img-wraper {
         overflow-y: hidden;
     }
 
