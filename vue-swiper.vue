@@ -6,7 +6,7 @@
                     <div class="swiper-slide-img-wraper" style="margin-bottom: 5px">
                         <img style="max-width: 100%" :src="item.src"/>
                     </div>
-                    {{item.title}}}
+                    {{item.title}}
                 </a>
 
             </div>
